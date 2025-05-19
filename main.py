@@ -23,22 +23,11 @@ st.set_page_config(
 # st.report_thread.add_report_ctx(thread)
 
 def main():
-    #criando 3 colunas
-    col1, col2, col3 = st.columns(3)
-    foto = Image.open('foto.png')
-    #inserindo na coluna 2
-    col2.image(foto, use_column_width=True)
-    
     st.title('Modelo de Manutenção para Sistemas de Difícil Acesso')
-
-    menu = ["Simulador", "Otimizador", "Informações", "Grupo de Pesquisa"]
-    
+    menu = ["Simulador", "Otimizador"]
     choice = st.sidebar.selectbox("Selecione aqui", menu)
-    
     if choice == menu[0]:
-        
         st.header(menu[0])
-
         st.subheader("Insira os valores dos parâmetros de entrada abaixo:")
 
         n2 = st.number_input("Insira o parâmetro de escala - {}".format(chr(945)), min_value = 0.0, value = 10.0) # escala fraca
@@ -701,59 +690,6 @@ def main():
                 """,
                 unsafe_allow_html=True,
             )
-    
-            texto = '''Este protótipo possui restrições quanto ao espaço de busca de soluções, com W,M ∈ {1,...,50}. Se for do interesse do usuário utilizar uma gama maior de combinações de soluções ou se houver alguma dúvida sobre o estudo e/ou este protótipo, elas podem ser direcionadas para qualquer um dos endereços de e-mail abaixo. Por fim, se esta aplicação for utilizada para qualquer propósito, todos os autores devem ser informados.'''
-            st.markdown(f'<p class="justificado">{texto}</p>', unsafe_allow_html=True)
-            st.write('''y.r.melo@random.org.br''')
-            st.write('''c.a.v.cavalcante@random.org.br''')
-    
-    if choice == menu[2]:
-        
-        st.header(menu[2])
-        st.markdown(
-                """
-                <style>
-                    .justificado {
-                        text-align: justify;
-                    }
-                </style>
-                """,
-                unsafe_allow_html=True,
-            )
-        
-        texto1 = '''Este produto tecnológico, desenvolvido por (Melo; Cavalcante, 2025), para apoiar a tomada de decisão na manutenção de sistemas críticos, como geração e distribuição de energia, abastecimento de água e saneamento básico, especialmente aqueles localizados em áreas remotas ou com infraestrutura complexa. Esses sistemas apresentam desafios operacionais significativos, exigindo estratégias de manutenção que conciliem eficácia e viabilidade operacional. A solução proposta baseia-se em um modelo de manutenção estruturado em períodos discretos, permitindo a integração de ações preventivas e corretivas conforme a disponibilidade de recursos, caracterizada pela ocorrência de oportunidades. Essa abordagem periódica facilita o planejamento estratégico das intervenções e aproxima a teoria da  prática. A otimização da política de manutenção é realizada por algoritmos numéricos que avaliam diferentes cenários de renovação do sistema. O modelo considera fatores como os custos das manutenções corretiva e preventiva, o custo da inatividade após uma falha, o custo para garantir uma ação de manutenção, a probabilidade de surgimento de oportunidades em visitas, os intervalos entre os períodos de visita e a vida útil do sistema. A aplicação numérica do modelo, aliada a uma análise de sensibilidade, demonstra que a abordagem proposta é particularmente eficaz em cenários com recursos limitados e poucas oportunidades de manutenção. Além disso, a comparação com políticas de manutenção contínuas evidencia que a discretização dos períodos não compromete significativamente o desempenho do sistema, reforçando a viabilidade prática da metodologia. Esse produto tecnológico oferece uma ferramenta de suporte à decisão acessível e intuitiva, permitindo simulações e otimizações da política de manutenção para diferentes contextos, auxiliando gestores e engenheiros na definição de estratégias eficientes para a gestão de ativos críticos.'''
-        texto2 = '''Este produto tecnológico possui restrições quanto ao espaço de busca de soluções, com W,M ∈ {1,...,50}. Se for do interesse do usuário utilizar uma gama maior de combinações de soluções ou se houver alguma dúvida sobre o estudo e/ou este protótipo, elas podem ser direcionadas para qualquer um dos endereços de e-mail abaixo. Por fim, se esta aplicação for utilizada para qualquer propósito, todos os autores devem ser informados.'''
-        texto3 = '''Uma representação gráfica da política de manutenção proposta é apresentada abaixo, sendo s o intervalo de tempo entre visitas, W o limite inferior da janela de ações de manutenção preventiva por oportunidade, e M a idade de ação de manutenção garantida'''
-        st.markdown(f'<p class="justificado">{texto1}</p>', unsafe_allow_html=True)
-        st.markdown(f'<p class="justificado">{texto3}</p>', unsafe_allow_html=True)
-
-        #criando 3 colunas
-        col1, col2, col3 = st.columns(3)
-        foto3 = Image.open('foto3.png')
-        #inserindo na coluna 2
-        col2.image(foto3, use_column_width=True)
-        
-        st.markdown(f'<p class="justificado">{texto2}</p>', unsafe_allow_html=True)
-        st.write('''y.r.melo@random.org.br''')
-        st.write('''c.a.v.cavalcante@random.org.br''')
-        st.markdown(
-            """
-            <p style="text-align: justify;">
-                <b>MELO, Yan Ribeiro.</b> 
-                <i>Proposição de Modelo de Manutenção para Sistemas de Difícil Acesso.</i> 
-                2025. 84 f. Dissertação (Mestrado em Engenharia de Produção) – Universidade Federal de Pernambuco, Recife, 2025.
-            </p>
-            """,
-            unsafe_allow_html=True
-        )
-
-    if choice == menu[3]:
-        
-        st.header(menu[3])
-        
-        st.write("O Grupo de Pesquisa em Risco e Análise da Decisão em Operações e Manutenção foi criado em 2012 com o objetivo de reunir diferentes pesquisadores que atuam nas seguintes áreas: risco, modelagem de manutenção e operação. Saiba mais sobre o grupo através do nosso site.")
-        st.markdown('[Clique aqui para ser redirecionado ao nosso site](https://sites.ufpe.br/random/#page-top)', False)
-        
 if st._is_running_with_streamlit:
     main()
 else:
